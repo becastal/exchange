@@ -80,7 +80,19 @@ void exponenciar(fracao* a, int n) {
 }
 
 void printar(fracao a, char fim) {
-	printf("%d/%d%c", a.numerador, a.denominador, fim);
+	if (a.denominador != 1) {
+		printf("%d/%d%c", a.numerador, a.denominador, fim);
+	} else {
+		printf("%d%c", a.numerador, fim);
+	}
+}
+
+void fprintar(FILE* f, fracao a, char fim) {
+	if (a.denominador != 1) {
+		fprintf(f, "%d/%d%c", a.numerador, a.denominador, fim);
+	} else {
+		fprintf(f, "%d%c", a.numerador, fim);
+	}
 }
 
 void receber(fracao* a) {
@@ -92,6 +104,20 @@ void receber(fracao* a) {
 		scanf("%d", &denominador_);	
 	} else {
 		ungetc(c, stdin);
+		denominador_ = 1;
+	}
+	*a = fracao_(numerador_, denominador_);
+}
+
+void freceber(FILE* f, fracao* a) {
+	int numerador_, denominador_;
+	fscanf(f, "%d", &numerador_);	
+
+	char c = fgetc(f);	
+	if (c == '/') {
+		fscanf(f, "%d", &denominador_);	
+	} else {
+		ungetc(c, f);
 		denominador_ = 1;
 	}
 	*a = fracao_(numerador_, denominador_);

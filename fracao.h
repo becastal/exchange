@@ -1,5 +1,6 @@
 #ifndef fracao_h
 #define fracao_h
+#include <stdio.h>
 
 typedef struct fracao fracao;
 
@@ -31,7 +32,9 @@ fracao exponenciar_(fracao a, int n);
 void exponenciar(fracao* a, int n);
 
 void printar(fracao a, char fim);
+void fprintar(FILE* f, fracao a, char fim);
 void receber(fracao* a);
+void freceber(FILE* f, fracao* a);
 
 #endif
 
