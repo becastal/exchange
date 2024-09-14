@@ -23,7 +23,7 @@ fracao subtrair_(fracao a, fracao b);
 void subtrair(fracao* a, fracao b);
 
 fracao multiplicar_(fracao a, fracao b);
-void multiplicar(fracao* a, fracao b);  // Fixed to take a pointer to 'fracao'
+void multiplicar(fracao* a, fracao b);
 
 fracao dividir_(fracao a, fracao b);
 void dividir(fracao* a, fracao b);
