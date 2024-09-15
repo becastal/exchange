@@ -7,7 +7,7 @@
 registro* login(registro* registros, int quantidade_registros) {
     registro* usuario = NULL;
     while (1) {
-        char cpf_informado[13];
+        char cpf_informado[12];
         printf("[?] informe o seu cpf: ");
         scanf("%11s", cpf_informado);
 		getchar();
@@ -86,12 +86,32 @@ registro* novo_usuario(registro** registros, int* quantidade_registros) {
     return &(*registros)[(*quantidade_registros) - 1];
 }
 
+void consultar_saldo(registro* usuario) {
+	printf("[i] saldo atual de: %s", usuario->nome);
+	printf("    .reais: "), printar(usuario->reais, '\n');
+	printf("    .bitcoin: "), printar(usuario->bitcoin, '\n');
+	printf("    .etherium: "), printar(usuario->etherium, '\n');
+	printf("    .ripple: "), printar(usuario->ripple, '\n');
+}
+
+void consultar_extrato(registro* usuario) {
+	printf("[i] extrato atual de: %s", usuario->nome);
+	printf("[i] quantidade de movimentos: %d\n", usuario->quantidade_movimentos);
+
+	for (int i = 0; i < usuario->quantidade_movimentos; i++) {
+		printf("[i] movimento em %s:\n", usuario->movimentos[i].data);
+		printf("    .descricao: %s\n", usuario->movimentos[i].descricao);
+		printf("    .reais: "), printar(usuario->movimentos[i].reais, '\n');
+		printf("    .bitcoin: "), printar(usuario->movimentos[i].bitcoin, '\n');
+		printf("    .etherium: "), printar(usuario->movimentos[i].etherium, '\n');
+		printf("    .ripple: "), printar(usuario->movimentos[i].ripple, '\n');
+	}
+}
+
 int main() {
 	int quantidade_registros;
     registro* registros = ler_base(&quantidade_registros);
 	registro* usuario;
-
-	puts("exchange de criptomoedas");
 
 	puts("[+] menu inicial!");
 	puts("[1] logar");
@@ -121,7 +141,39 @@ int main() {
 		}
 	}
 
-	printf("login ok para %s\n", usuario->nome);
+	printf("[i] logado como: %s\n", usuario->nome);
+
+	puts("[+] menu principal!");
+	puts("[1] consultar saldo");
+	puts("[2] consultar extrato");
+	puts("[3] depositar reais");
+	puts("[4] sacar reais");
+	puts("[5] comprar criptomoedas");
+	puts("[6] vender criptomoedas");
+	puts("[7] atualizar cotacao");
+	puts("[8] sair");
+
+	int sair = 0;
+	while (!sair) {
+		printf("[?] selecione uma das opcoes: ");	
+		int selecao;
+		scanf("%d", &selecao);
+
+		switch (selecao) {
+			case 1:
+				consultar_saldo(usuario);
+				break;
+			case 2:
+				consultar_extrato(usuario);
+				break;
+			case 8:
+				sair = 1;
+				break;
+			default:
+				puts("[e] selecao invalida! informe um inteiro que pertence a [1, 8]");
+		}
+	}
+
 	gravar_base(registros, quantidade_registros);
     return 0;
 }
