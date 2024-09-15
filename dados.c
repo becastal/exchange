@@ -8,8 +8,8 @@ typedef struct registro registro;
 
 // le um unico registro do arquivo base;
 void ler_registro(registro* a, FILE* base) {
-    fscanf(base, "%12s", a->cpf);
-    fgetc(base);
+    fscanf(base, "%11s", a->cpf); fgetc(base);
+    fscanf(base, "%6s", a->senha); fgetc(base);
     fgets(a->nome, sizeof(a->nome), base);
 
     freceber(base, &a->reais);
@@ -36,7 +36,6 @@ registro* ler_base(int* quantidade_registros) {
     FILE* base = fopen("base_registros.txt", "r");
 
     fscanf(base, "%d", quantidade_registros);
-
     registro* registros = malloc(*quantidade_registros * sizeof(registro));
 
     for (int i = 0; i < *quantidade_registros; i++) {
@@ -50,6 +49,7 @@ registro* ler_base(int* quantidade_registros) {
 // grava um unico registro no arquivo base;
 void gravar_registro(registro* a, FILE* base) {
 	fprintf(base, "%s\n", a->cpf);
+	fprintf(base, "%s\n", a->senha);
 	fprintf(base, "%s", a->nome);
 	fprintar(base, a->reais, '\n');
 	fprintar(base, a->bitcoin, '\n');

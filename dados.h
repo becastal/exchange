@@ -14,6 +14,7 @@ struct movimento {
 typedef struct registro registro;
 struct registro {
     char cpf[13];
+    char senha[8];
     char nome[100];
     fracao reais, bitcoin, etherium, ripple;
 	int quantidade_movimentos;
