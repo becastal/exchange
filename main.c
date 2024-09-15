@@ -1,100 +1,127 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "fracao.h"
+#include "dados.h"
 
-// guarda o movimento de uma conta, os valores que aparecem quando se consulta o seu extrato;
-typedef struct movimento movimento;
-struct movimento {
-	char data[12];
-	char descricao[100];
-    fracao bitcoin, etherium, ripple;
-};
+registro* login(registro* registros, int quantidade_registros) {
+    registro* usuario = NULL;
+    while (1) {
+        char cpf_informado[13];
+        printf("[?] informe o seu cpf: ");
+        scanf("%11s", cpf_informado);
+		getchar();
 
-// guarda os valores referentes a uma conta;
-typedef struct registro registro;
-struct registro {
-    char cpf[13];
-    char nome[100];
-    fracao bitcoin, etherium, ripple;
-	int quantidade_movimentos;
-	movimento* movimentos;
-};
+        for (int i = 0; i < quantidade_registros && usuario == NULL; i++) {
+            if (strcmp(registros[i].cpf, cpf_informado) == 0) {
+                usuario = &registros[i];
+            }
+        }
 
-// le um unico registro do arquivo base;
-void ler_registro(registro* a, FILE* base) {
-    fscanf(base, "%12s", a->cpf);
-    fgetc(base);
-    fgets(a->nome, sizeof(a->nome), base);
-
-    freceber(base, &a->bitcoin);
-    freceber(base, &a->etherium);
-    freceber(base, &a->ripple);
-
-	fscanf(base, "%d", &a->quantidade_movimentos);
-	a->movimentos = malloc(a->quantidade_movimentos * sizeof(movimento));
-
-	for (int i = 0; i < a->quantidade_movimentos; i++) {
-		fscanf(base, "%11s", a->movimentos[i].data);
-		fgetc(base);
-		fgets(a->movimentos[i].descricao, sizeof(a->movimentos[i].descricao), base);
-		freceber(base, &a->movimentos[i].bitcoin);
-		freceber(base, &a->movimentos[i].etherium);
-		freceber(base, &a->movimentos[i].ripple);
-	}
-}
-
-// le a base toda;
-registro* ler_base(int* quantidade_registros) {
-    FILE* base = fopen("base_registros.txt", "r");
-
-    fscanf(base, "%d", quantidade_registros);
-
-    registro* registros = malloc(*quantidade_registros * sizeof(registro));
-
-    for (int i = 0; i < *quantidade_registros; i++) {
-        ler_registro(&registros[i], base);
+        if (usuario != NULL) break;
+        else puts("[e] cpf nao encontrado, tente novamente.");
     }
 
-    fclose(base);
-    return registros;
+    int ok = 0;
+    for (int tentativa = 1; tentativa <= 3 && !ok; tentativa++) {
+        char senha_informada[6];
+        printf("[?] (%d/3) informe a sua senha: ", tentativa);
+		scanf("%6s", senha_informada);
+		getchar();
+
+        if (strcmp(senha_informada, usuario->senha) == 0) ok = 1;
+        else if (tentativa < 3) puts("[e] senha incorreta, tente novamente.");
+    }
+
+    if (!ok) return NULL;
+    return usuario;
 }
 
-// grava um unico registro no arquivo base;
-void gravar_registro(registro* a, FILE* base) {
-	fprintf(base, "%s\n", a->cpf);
-	fprintf(base, "%s", a->nome);
-	fprintar(base, a->bitcoin, '\n');
-	fprintar(base, a->etherium, '\n');
-	fprintar(base, a->ripple, '\n');
-	for (int i = 0; i < a->quantidade_movimentos; i++) {
-		fprintf(base, "%s\n", a->movimentos[i].data);
-		fprintf(base, "%s", a->movimentos[i].descricao);
-		fprintar(base, a->movimentos[i].bitcoin, '\n');
-		fprintar(base, a->movimentos[i].etherium, '\n');
-		fprintar(base, a->movimentos[i].ripple, '\n');
-	}
-}
+registro* novo_usuario(registro** registros, int* quantidade_registros) {
+    registro novo;
 
-// grava a base toda;
-void gravar_base(registro* registros, int quantidade_registros) {
-	FILE* base = fopen("base_registros.txt", "w");
+    int cpf_ok = 0;
+    while (!cpf_ok) {
+        printf("[?] informe o novo cpf: ");
+        scanf("%11s", novo.cpf);
+        getchar();
 
-	fprintf(base, "%d\n", quantidade_registros);
-	for (int i = 0; i < quantidade_registros; i++) {
-		gravar_registro(&registros[i], base);
-	}
+        cpf_ok = 1;
+        for (int i = 0; i < 11 && cpf_ok; i++) {
+            cpf_ok &= (novo.cpf[i] >= '0' && novo.cpf[i] <= '9');
+        }
 
-	fclose(base);
+        if (!cpf_ok) puts("[e] valor invalido! o cpf deve ter 11 digitos numericos!");
+    }
+
+    int senha_ok = 0;
+    while (!senha_ok) {
+        printf("[?] informe a nova senha: ");
+        scanf("%6s", novo.senha);
+
+        senha_ok = 1;
+        for (int i = 0; i < 6 && senha_ok; i++) {
+            senha_ok &= (novo.senha[i] >= '0' && novo.senha[i] <= '9');
+        }
+
+        if (!senha_ok) puts("[e] valor invalido! a senha deve ter 6 digitos numericos!");
+    }
+
+    printf("[?] informe o novo nome: ");
+    getchar();
+    fgets(novo.nome, sizeof(novo.nome), stdin);
+
+    novo.reais = fracao_(0, 1);
+    novo.bitcoin = fracao_(0, 1);
+    novo.etherium = fracao_(0, 1);
+    novo.ripple = fracao_(0, 1);
+    novo.quantidade_movimentos = 0;
+    novo.movimentos = NULL;
+
+    *registros = realloc(*registros, (*quantidade_registros + 1) * sizeof(registro));
+    
+    (*registros)[*quantidade_registros] = novo;
+    (*quantidade_registros)++;    
+
+    return &(*registros)[(*quantidade_registros) - 1];
 }
 
 int main() {
 	int quantidade_registros;
     registro* registros = ler_base(&quantidade_registros);
+	registro* usuario;
 
-	gravar_base(registros, quantidade_registros);
-	for (int i = 0; i < quantidade_registros; i++) {
-		free(registros[i].movimentos);
+	puts("exchange de criptomoedas");
+
+	puts("[+] menu inicial!");
+	puts("[1] logar");
+	puts("[2] novo usuario\n");
+
+	int logado = 0;
+	while (!logado) {
+		printf("[?] selecione uma das opcoes: ");	
+		int selecao;
+		scanf("%d", &selecao);
+
+		switch (selecao) {
+			case 1:
+				usuario = login(registros, quantidade_registros);
+				if (usuario == NULL) {
+					puts("[e] impossivel logar! fim do programa!");
+					return 0;
+				}
+				logado = 1;
+				break;
+			case 2:
+				usuario = novo_usuario(&registros, &quantidade_registros);
+				logado = 1;
+				break;
+			default:
+				puts("[e] selecao invalida! informe um inteiro que pertence a [1, 2]");
+		}
 	}
-    free(registros);
+
+	printf("login ok para %s\n", usuario->nome);
+	gravar_base(registros, quantidade_registros);
     return 0;
 }
