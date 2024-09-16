@@ -108,6 +108,14 @@ void consultar_extrato(registro* usuario) {
 	}
 }
 
+void depositar_reais(registro** usuario) {
+	puts("depositar");
+}
+
+void sacar_reais(registro** usuario) {
+	puts("sacar");
+}
+
 int main() {
 	int quantidade_registros;
     registro* registros = ler_base(&quantidade_registros);
@@ -165,6 +173,12 @@ int main() {
 				break;
 			case 2:
 				consultar_extrato(usuario);
+				break;
+			case 3:
+				depositar_reais(&usuario);
+				break;
+			case 4:
+				sacar_reais(&usuario);
 				break;
 			case 8:
 				sair = 1;
