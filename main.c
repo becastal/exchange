@@ -108,12 +108,61 @@ void consultar_extrato(registro* usuario) {
 	}
 }
 
-void depositar_reais(registro** usuario) {
-	puts("depositar");
+void novo_movimento(registro* usuario, char* descricao) {
+	usuario->movimentos = realloc(usuario->movimentos, (usuario->quantidade_movimentos + 1) * sizeof(movimento));
+
+	movimento novo;
+	strcpy(novo.data, "01/01/2000");
+	strcpy(novo.descricao, descricao);
+	novo.reais = usuario->reais;
+	novo.bitcoin = usuario->bitcoin;
+	novo.etherium = usuario->etherium;
+	novo.ripple = usuario->ripple;
+	usuario->movimentos[usuario->quantidade_movimentos] = novo;
+	usuario->quantidade_movimentos++;
 }
 
-void sacar_reais(registro** usuario) {
-	puts("sacar");
+void depositar_reais(registro* usuario) {
+	int ok = 0;
+	fracao depositado;
+	while (!ok) {
+		printf("[?] informe o valor a ser depositado: ");
+		receber(&depositado);
+		if (depositado.numerador > 0) {
+			ok = 1;
+		} else {
+			puts("[e] o valor deve ser > 0!");
+		}
+	}
+
+	char descricao[100];
+	snprintf(descricao, sizeof(descricao), "deposito de %d/%d reais", depositado.numerador, depositado.denominador);
+	novo_movimento(usuario, descricao);
+	somar(&(usuario->reais), depositado);
+}
+
+void sacar_reais(registro* usuario) {
+	int ok = 0;
+	fracao sacado;
+	while (!ok) {
+		printf("[?] informe o valor a ser sacado: ");
+		receber(&sacado);
+		ok |= (sacado.numerador > 0);
+		if (sacado.numerador < 0) {
+			puts("[e] o valor deve ser > 0!");
+		} else if (menor(usuario->reais, sacado)) {
+			printf("[e] o valor nao pode exceder o seu saldo de ");
+			printar(usuario->reais, ' ');
+			printf("reais!\n");
+		} else {
+			ok = 1;
+		}
+	}
+
+	char descricao[100];
+	snprintf(descricao, sizeof(descricao), "saque de %d/%d reais", sacado.numerador, sacado.denominador);
+	novo_movimento(usuario, descricao);
+	subtrair(&(usuario->reais), sacado);
 }
 
 int main() {
@@ -175,10 +224,10 @@ int main() {
 				consultar_extrato(usuario);
 				break;
 			case 3:
-				depositar_reais(&usuario);
+				depositar_reais(usuario);
 				break;
 			case 4:
-				sacar_reais(&usuario);
+				sacar_reais(usuario);
 				break;
 			case 8:
 				sair = 1;

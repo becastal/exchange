@@ -1,17 +1,29 @@
-2
-22222222222
-222222
-novo2
+1
+11111111111
+111111
+bernardo norberto castaldelli
+94/3
 0
 0
 0
+4
+01/01/2000
+deposito de 10/1 reais10
 0
 0
-33333333333
-333333
-novo3
+0
+01/01/2000
+deposito de 11/1 reais20
 0
 0
+0
+01/01/2000
+deposito de 2/3 reais31
+0
+0
+0
+01/01/2000
+saque de 1/3 reais95/3
 0
 0
 0

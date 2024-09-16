@@ -34,7 +34,7 @@ void negar(fracao* a) {
 }
 
 fracao somar_(fracao a, fracao b) {
-	return fracao_(a.denominador * b.denominador, a.numerador * b.denominador + b.numerador * a.denominador);
+    return fracao_( a.numerador * b.denominador + b.numerador * a.denominador, a.denominador * b.denominador);
 }
 
 void somar(fracao* a, fracao b) {
@@ -85,6 +85,18 @@ void printar(fracao a, char fim) {
 	} else {
 		printf("%d%c", a.numerador, fim);
 	}
+}
+
+int maior(fracao a, fracao b) {
+    return a.numerador * b.denominador > b.numerador * a.denominador;
+}
+
+int menor(fracao a, fracao b) {
+    return a.numerador * b.denominador < b.numerador * a.denominador;
+}
+
+int igual(fracao a, fracao b) {
+    return a.numerador == b.numerador && a.denominador == b.denominador;
 }
 
 void fprintar(FILE* f, fracao a, char fim) {

@@ -31,6 +31,10 @@ void dividir(fracao* a, fracao b);
 fracao exponenciar_(fracao a, int n);
 void exponenciar(fracao* a, int n);
 
+int maior(fracao a, fracao b);
+int menor(fracao a, fracao b);
+int igual(fracao a, fracao b);
+
 void printar(fracao a, char fim);
 void fprintar(FILE* f, fracao a, char fim);
 void receber(fracao* a);
