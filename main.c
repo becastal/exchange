@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "fracao.h"
 #include "dados.h"
 
@@ -165,10 +166,33 @@ void sacar_reais(registro* usuario) {
 	subtrair(&(usuario->reais), sacado);
 }
 
+int percentual_aleatorio() {
+	return rand() % (11 - 5);
+}
+
+void atualizar_cotacao(cotacao* cotacao_atual) {
+	printf("[i] antes:\n");
+	printar(cotacao_atual->bitcoin, '\n');
+	printar(cotacao_atual->etherium, '\n');
+	printar(cotacao_atual->ripple, '\n');
+
+	multiplicar(&cotacao_atual->bitcoin, fracao_(percentual_aleatorio() + 100, 100));
+	multiplicar(&cotacao_atual->etherium, fracao_(percentual_aleatorio() + 100, 100));
+	multiplicar(&cotacao_atual->ripple, fracao_(percentual_aleatorio() + 100, 100));
+
+	printf("[i] depois:\n");
+	printar(cotacao_atual->bitcoin, '\n');
+	printar(cotacao_atual->etherium, '\n');
+	printar(cotacao_atual->ripple, '\n');
+}
+
 int main() {
+	srand(time(NULL));
 	int quantidade_registros;
     registro* registros = ler_base(&quantidade_registros);
 	registro* usuario;
+	cotacao cotacao_atual = ler_cotacao();
+
 
 	puts("[+] menu inicial!");
 	puts("[1] logar");
@@ -229,6 +253,9 @@ int main() {
 			case 4:
 				sacar_reais(usuario);
 				break;
+			case 7:
+				atualizar_cotacao(&cotacao_atual);
+				break;
 			case 8:
 				sair = 1;
 				break;
@@ -238,5 +265,6 @@ int main() {
 	}
 
 	gravar_base(registros, quantidade_registros);
+	gravar_cotacao(cotacao_atual);
     return 0;
 }

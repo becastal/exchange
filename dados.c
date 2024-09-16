@@ -81,3 +81,22 @@ void gravar_base(registro* registros, int quantidade_registros) {
     free(registros);
 	fclose(base);
 }
+
+cotacao ler_cotacao() {
+	FILE* base_cotacao = fopen("base_cotacao.txt", "r");
+	cotacao	resposta;
+
+	freceber(base_cotacao, &resposta.bitcoin);
+	freceber(base_cotacao, &resposta.etherium);
+	freceber(base_cotacao, &resposta.ripple);
+	return resposta;
+}
+
+void gravar_cotacao(cotacao cotacao_atual) {
+	FILE* base_cotacao = fopen("base_cotacao.txt", "w");
+	cotacao	resposta;
+
+	fprintar(base_cotacao, cotacao_atual.bitcoin, '\n');
+	fprintar(base_cotacao, cotacao_atual.etherium, '\n');
+	fprintar(base_cotacao, cotacao_atual.ripple, '\n');
+}
