@@ -5,6 +5,7 @@ As funcionalidades incluem criação de novos usuários, login com CPF e senha, 
 <h3 id="funcionalidades">Funcionalidades</h3>
 <h5>
   <ul>
-    <li>Criar Usuários etc etc etc</li>
+    <li>Criar Usuários</li>
+    <li> Atualizar cotação</li>
   </ul>
 </h5>
