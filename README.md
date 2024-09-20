@@ -4,9 +4,9 @@
 <h3 id="topicos">Tópicos</h3>
 <h5>
   <ul>
-    <li><a href="sobre">Sobre o projeto</a></li>
-    <li><a href="funcoes">Funções</a></li>
-    <li><a href="devs">Desenvolvedores</a></li>
+    <li><a href="#sobre">Sobre o projeto</a></li>
+    <li><a href="#funcoes">Funções</a></li>
+    <li><a href="#devs">Desenvolvedores</a></li>
   </ul>
 </h5>
 
