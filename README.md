@@ -6,6 +6,7 @@
   <ul>
     <li><a href="#sobre">Sobre o projeto</a></li>
     <li><a href="#funcoes">Funções</a></li>
+    <li><a href="comp">Compilação e execução</a></li>
     <li><a href="#devs">Desenvolvedores</a></li>
   </ul>
 </h5>
@@ -19,7 +20,7 @@
 <h3 id="funcoes">Funções</h3>
 <h5>
   <ul>
-    <li id="funcao1">Criar Usuários - descrção</li>
+    <li id="funcao1">Criar Usuários - ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️ESCREVER DESCRIÇÃO</li>
     <li id="funcao2">Atualizar cotação - descrção</li>
     <li id="funcao3">Login com CPF e senha - descrção</li>
     <li id="funcao4">Transações financeiras - descrção</li>
@@ -27,8 +28,13 @@
   </ul>
 </h5>
 
+<h3>Compilação e execução</h3>
+  <ul>
+    <li><b>Replit</b> - ESCREVER COMO COMPILAR ETC!!!!!!!!!!!!!!!!!!!!!!!!!⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️</li>
+    <li><b>Arquivo executável(.exe)</b> - </li>
+  </ul>
 
-
+  
 <h3 id="devs">Desenvolvedores</h3>
 <h5>Bernardo Norberto Castaldelli <b>RA: 24.124.007-6</b></h5>
 <h5>Gabriela Abi Rached Dantas <b>RA: 24.124.033-2</b></h5>
