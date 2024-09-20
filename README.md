@@ -4,12 +4,17 @@
 <h3 id="funcionalidades">Funcionalidades</h3>
 <h5>
   <ul>
-    <li>Criar Usuários</li>
-    <li>Atualizar cotação</li>
-    <li>Login com CPF e senha</li>
-    <li>Transações financeiras</li>
-    <li>Depósito, saque e compra/venda de criptomoedas</li>
+    <li><a id="funcao1">Criar Usuários</a></li>
+    <li><a id="funcao2">Atualizar cotação</a></li>
+    <li><a id="funcao3">Login com CPF e senha</a></li>
+    <li><a id="funcao4">Transações financeiras</a></li>
+    <li><a id="funcao5">Depósito, saque e compra/venda de criptomoedas</a></li>
 </ul>
  <h5>O desenvolvimento desse sistema consiste em uma carteira digital que o usuário pode comprar e vender moedas virtuais, além de consultar seu saldo, sacar ou depositar reais e consultar seu extrato de transações. Com isso, conclui-se que a Exchange de criptomoedas desenvolvida atende aos propósitos do projeto, proporcionando uma ferramenta eficaz ao usuário investidor. </h5>
-  
 </h5>
+
+
+<h3>Desenvolvedores</h3>
+<h5></h5>
+<h5>Gabriela Abi Rached Dantas RA: 24.124.033-2</h5>
+<h5>Yasmin Marques de Barros RA: 24.124.012-6</h5>
