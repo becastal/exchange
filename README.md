@@ -1,4 +1,4 @@
-<h1 id="titulo">Crypto Exchange<h1>
+<h1 id="titulo">Crypto Exchange<h1> <img src="C:\Users\unifgdantas\Downloads\exchange-main\6433653-golden-bitcoin-coin-crypto-currency-golden-coin-bitcoin-symbol-on-black-background-vector-illustration-vetor" /img>
 <h5>Este trabalho tem como propósito desenvolver um código voltado à criação de uma Exchange de Criptomoedas, que consiste em uma plataforma de compra e venda de moedas digitais. Essa plataforma criada oferece aos usuários investidores gerenciem suas finanças digitais, incluindo algumas funcionalidades. O trabalho possui armazenamento em base binária, permitindo que o sistema armazene em um banco de dados as informações executadas, garantindo que as essas não sejam perdidas quando o programa é encerrado ou reiniciado. </h5>
 
 <h3 id="funcionalidades">Funcionalidades</h3>
