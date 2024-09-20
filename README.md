@@ -10,6 +10,6 @@
     <li>Transações financeiras</li>
     <li>Depósito, saque e compra/venda de criptomoedas</li>
 
- <h5> O desenvolvimento desse sistema consiste em uma carteira digital que o usuário pode comprar e vender moedas virtuais, além de consultar seu saldo, sacar ou depositar reais e consultar seu extrato de transações. Com isso, conclui-se que a Exchange de criptomoedas desenvolvida atende aos propósitos do projeto, proporcionando uma ferramenta eficaz ao usuário investidor. </h5>
+ <h5>O desenvolvimento desse sistema consiste em uma carteira digital que o usuário pode comprar e vender moedas virtuais, além de consultar seu saldo, sacar ou depositar reais e consultar seu extrato de transações. Com isso, conclui-se que a Exchange de criptomoedas desenvolvida atende aos propósitos do projeto, proporcionando uma ferramenta eficaz ao usuário investidor. </h5>
   </ul>
 </h5>
