@@ -29,7 +29,7 @@
 
 
 
-<h3>Desenvolvedores</h3>
+<h3 id="devs">Desenvolvedores</h3>
 <h5>Bernardo Norberto Castaldelli <b>RA: 24.124.007-6</b></h5>
 <h5>Gabriela Abi Rached Dantas <b>RA: 24.124.033-2</b></h5>
 <h5>Yasmin Marques de Barros <b>RA: 24.124.012-6</b></h5>
