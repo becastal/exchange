@@ -46,6 +46,12 @@ registro* novo_usuario(registro** registros, int* quantidade_registros) {
         scanf("%11s", novo.cpf);
         getchar();
 
+	if (validar_cpf(novo.cpf)) {
+            cpf_ok = 1; // CPF válido
+        } else {
+            puts("[e] CPF inválido! O CPF deve ter 11 dígitos numéricos e ser válido.");
+        }
+	    
         cpf_ok = 1;
         for (int i = 0; i < 11 && cpf_ok; i++) {
             cpf_ok &= (novo.cpf[i] >= '0' && novo.cpf[i] <= '9');
@@ -67,6 +73,32 @@ registro* novo_usuario(registro** registros, int* quantidade_registros) {
         if (!senha_ok) puts("[e] valor invalido! a senha deve ter 6 digitos numericos!");
     }
 
+int validar_cpf(const*char cpf){
+	int n = strlen(cpf);
+	if (n != 11) return 0;
+	for (int i = 0; i < n; i++){
+		if (cpf[i] < '0' || cpf [i] > '9') {
+			return 0;
+	}
+}
+
+int soma = 0, peso = 10;
+    for (int i = 0; i < 9; i++) {
+        soma += (cpf[i] - '0') * peso--;
+    }
+    int digito1 = 11 - (soma % 11);
+    if (digito1 >= 10) digito1 = 0;
+
+    soma = 0;
+    peso = 11;
+    for (int i = 0; i < 10; i++) {
+        soma += (cpf[i] - '0') * peso--;
+    }
+    int digito2 = 11 - (soma % 11);
+    if (digito2 >= 10) digito2 = 0;
+	return (digito1 == (cpf[9] - '0')) && (digito2 == (cpf[10] - '0'));
+}
+	
     printf("[?] informe o novo nome: ");
     getchar();
     fgets(novo.nome, sizeof(novo.nome), stdin);
