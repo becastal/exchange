@@ -1,4 +1,6 @@
-<h1 id="titulo">Crypto Exchange</h1>
+<h1 id="titulo">Crypto Exchange </h1>
+
+<img src="https://fia.com.br/wp-content/uploads/2022/06/criptomoedas-o-que-sao-para-que-servem-como-investir-1280x720.jpg" height=200>
 
 <h2 id="topicos">Tópicos</h2>
 <h5>
@@ -18,11 +20,11 @@
 <h2 id="funcoes">Funções</h2>
 <h5>
   <ul>
-    <li id="funcao1">Criar Usuários - ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️ESCREVER DESCRIÇÃO</li>
-    <li id="funcao2">Atualizar cotação - descrção</li>
-    <li id="funcao3">Login com CPF e senha - descrção</li>
-    <li id="funcao4">Transações financeiras - descrção</li>
-    <li id="funcao5">Depósito, saque e compra/venda de criptomoedas - descrção</li>
+    <li id="funcao1">Criar Usuários - Permite o usuário criar um cadastro com CPF, senha e nome.</li>
+    <li id="funcao3">Realizar login - O usuário pode logar em sua conta usando seu CPF e senha.</li>
+    <li id="funcao2">Atualizar cotação - Atualiza a cotação das criptomoedas para um valor aleatório.</li>
+    <li id="funcao4">Transações financeiras - O usuário pode acessar seu extrato e ver todas as transações feitas em sua conta.</li>
+    <li id="funcao5">Depósito, saque e compra/venda de criptomoedas - As criptomoedas podem ser compradas, com o valor depositado em reais, e vendidas com base nas cotações e taxas.</li>
   </ul>
 </h5>
 
@@ -31,10 +33,9 @@
     <li><b>Replit</b>:<br>
       - Compilação: Quando você clica no botão de "Run", o Replit utiliza o compilador GCC nos bastidores para transformar o código C em código de máquina (compilação). Se houver algum erro, ele será mostrado no console.<br>
     - Execução: Após a compilação bem-sucedida, o Replit executa o programa e mostra a saída no terminal integrado. </li>
-    <li><b>Arquivo executável(.exe)</b>:<br>⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+    <li><b>Arquivo executável(.exe)</b>:<br>
     - Compilação: ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️PERGUNTAR PRO BERBER<br>
-    - Execução: você pode executar o arquivo .exe diretamente, clicando no ícone ou digitando no terminal:
-      "./executavel.exe". O programa será executado no sistema e a saída será exibida no terminal ou no prompt de comando.
+    - Execução: Abrir no terminal e escrever 'make'(sem as aspas).
     </li>
   </ul>
 
