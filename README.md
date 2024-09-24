@@ -34,8 +34,8 @@
       - Compilação: Quando você clica no botão de "Run", o Replit utiliza o compilador GCC nos bastidores para transformar o código C em código de máquina (compilação). Se houver algum erro, ele será mostrado no console.<br>
     - Execução: Após a compilação bem-sucedida, o Replit executa o programa e mostra a saída no terminal integrado. </li>
     <li><b>Arquivo executável(.exe)</b>:<br>
-    - Compilação: ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️PERGUNTAR PRO BERBER<br>
-    - Execução: Abrir no terminal e escrever 'make'(sem as aspas).
+    - Compilação: Abrir o terminal e escrever 'make' (sem as aspas). Ou, caso prefira, rodar o comando: 'gcc main.c dados.c fracao.c -o executavel' (sem as aspas) no terminal.<br>
+    - Execução: Executar o arquivo executavel apos compilar o programa. No powershell (terminal padrão do Windows), escreva no terminal: '.\executavel'. no Linux: './executavel'.
     </li>
   </ul>
 

@@ -34,7 +34,7 @@ void negar(fracao* a) {
 }
 
 fracao somar_(fracao a, fracao b) {
-	return fracao_(a.denominador * b.denominador, a.numerador * b.denominador + b.numerador * a.denominador);
+    return fracao_(a.numerador * b.denominador + b.numerador * a.denominador, a.denominador * b.denominador);
 }
 
 void somar(fracao* a, fracao b) {

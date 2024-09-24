@@ -4,18 +4,20 @@
 #include "dados.h"
 
 int main() {
-    FILE* base_txt = fopen("base_cotacao.txt", "r");
-    FILE* base_bin = fopen("base_cotacao.bin", "wb");
-
 	cotacao res;
 	res.bitcoin = fracao_(1, 1);
+	res.bitcoin_taxa_compra = fracao_(2, 100);
+	res.bitcoin_taxa_venda = fracao_(3, 100);
+
 	res.etherium = fracao_(1, 1);
+	res.etherium_taxa_compra = fracao_(1, 100);
+	res.etherium_taxa_venda = fracao_(2, 100);
+
 	res.ripple = fracao_(1, 1);
+	res.ripple_taxa_compra = fracao_(1, 100);
+	res.ripple_taxa_venda = fracao_(1, 100);
 
 	gravar_cotacao(res);	
-
-    fclose(base_txt);
-    fclose(base_bin);
 
     return 0;
 }

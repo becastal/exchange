@@ -25,6 +25,8 @@ struct registro {
 typedef struct cotacao cotacao;
 struct cotacao {
     fracao bitcoin, etherium, ripple;
+    fracao bitcoin_taxa_compra, etherium_taxa_compra, ripple_taxa_compra;
+    fracao bitcoin_taxa_venda, etherium_taxa_venda, ripple_taxa_venda;
 };
 
 void ler_registro(registro* a, FILE* base);

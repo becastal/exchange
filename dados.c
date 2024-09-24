@@ -21,7 +21,6 @@ void ler_registro(registro* a, FILE* base) {
     a->movimentos = malloc(a->quantidade_movimentos * sizeof(movimento));
 
     for (int i = 0; i < a->quantidade_movimentos; i++) {
-		puts("it gets here");
         fread(a->movimentos[i].data, sizeof(char), 12, base);
         fread(a->movimentos[i].descricao, sizeof(char), sizeof(a->movimentos[i].descricao), base);
         freceber(base, &a->movimentos[i].reais);
@@ -85,8 +84,16 @@ cotacao ler_cotacao() {
 	cotacao	resposta;
 
 	freceber(base_cotacao, &resposta.bitcoin);
+	freceber(base_cotacao, &resposta.bitcoin_taxa_compra);
+	freceber(base_cotacao, &resposta.bitcoin_taxa_venda);
+
 	freceber(base_cotacao, &resposta.etherium);
+	freceber(base_cotacao, &resposta.etherium_taxa_compra);
+	freceber(base_cotacao, &resposta.etherium_taxa_venda);
+
 	freceber(base_cotacao, &resposta.ripple);
+	freceber(base_cotacao, &resposta.ripple_taxa_compra);
+	freceber(base_cotacao, &resposta.ripple_taxa_venda);
 	return resposta;
 }
 
@@ -94,6 +101,14 @@ void gravar_cotacao(cotacao cotacao_atual) {
 	FILE* base_cotacao = fopen("base_cotacao.bin", "wb");
 
 	fprintar(base_cotacao, cotacao_atual.bitcoin);
+	fprintar(base_cotacao, cotacao_atual.bitcoin_taxa_compra);
+	fprintar(base_cotacao, cotacao_atual.bitcoin_taxa_venda);
+
 	fprintar(base_cotacao, cotacao_atual.etherium);
+	fprintar(base_cotacao, cotacao_atual.etherium_taxa_compra);
+	fprintar(base_cotacao, cotacao_atual.etherium_taxa_venda);
+
 	fprintar(base_cotacao, cotacao_atual.ripple);
+	fprintar(base_cotacao, cotacao_atual.ripple_taxa_compra);
+	fprintar(base_cotacao, cotacao_atual.ripple_taxa_venda);
 }
