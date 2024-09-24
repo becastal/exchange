@@ -5,10 +5,6 @@
 #include "fracao.h"
 #include "dados.h"
 
-/* 
-   TODO: validar o cpf quando for fazer novo_usuario.
-*/
-
 registro* login(registro* registros, int quantidade_registros) {
     registro* usuario = NULL;
     while (1) {
