@@ -21,11 +21,20 @@ struct registro {
 	movimento* movimentos;
 };
 
+// guarda os valores referentes a uma cotacao;
+typedef struct cotacao cotacao;
+struct cotacao {
+    fracao bitcoin, etherium, ripple;
+};
+
 void ler_registro(registro* a, FILE* base);
 registro* ler_base(int* quantidade_registros);
 
 void gravar_registro(registro* a, FILE* base);
 void gravar_base(registro* registros, int quantidade_registros);
+
+cotacao ler_cotacao();
+void gravar_cotacao();
 
 #endif
 
