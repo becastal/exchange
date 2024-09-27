@@ -1,4 +1,4 @@
-<h1 id="titulo">Crypto Exchange </h1>
+<h1 id="titulo">Crypto Exchange</h1>
 
 <img src="https://fia.com.br/wp-content/uploads/2022/06/criptomoedas-o-que-sao-para-que-servem-como-investir-1280x720.jpg" height=200>
 
@@ -31,11 +31,8 @@
 <h2 id="comp">Compilação e execução</h2>
   <ul>
     <li><b>Replit</b>:<br>
-      - Compilação: Quando você clica no botão de "Run", o Replit utiliza o compilador GCC nos bastidores para transformar o código C em código de máquina (compilação). Se houver algum erro, ele será mostrado no console.<br>
-    - Execução: Após a compilação bem-sucedida, o Replit executa o programa e mostra a saída no terminal integrado. </li>
-    <li><b>Arquivo executável(.exe)</b>:<br>
     - Compilação: Abrir o terminal e escrever 'make' (sem as aspas). Ou, caso prefira, rodar o comando: 'gcc main.c dados.c fracao.c -o executavel' (sem as aspas) no terminal.<br>
-    - Execução: Executar o arquivo executavel apos compilar o programa. No powershell (terminal padrão do Windows), escreva no terminal: '.\executavel'. no Linux: './executavel'.
+    - Execução: Executar o arquivo executavel apos compilar o programa. No Shell, escreva no terminal: './executavel'.
     </li>
   </ul>
 
