@@ -24,7 +24,7 @@
     <li id="funcao3">Realizar login - O usuário pode logar em sua conta usando seu CPF e senha.</li>
     <li id="funcao2">Atualizar cotação - Atualiza a cotação das criptomoedas para um valor aleatório.</li>
     <li id="funcao4">Transações financeiras - O usuário pode acessar seu extrato e ver todas as transações feitas em sua conta.</li>
-    <li id="funcao5">Depósito, saque e compra/venda de criptomoedas - As criptomoedas podem ser compradas, com o valor depositado em reais, e vendidas com base nas cotações e taxas.</li>
+    <li id="funcao5">Depósito, saque e compra/venda de criptomoedas - As criptomoedas podem ser compradas, com o valor depositado em reais, e vendidas com base nas cotações e taxas. Todas as contas e resultados são em frações.</li>
   </ul>
 </h5>
 
